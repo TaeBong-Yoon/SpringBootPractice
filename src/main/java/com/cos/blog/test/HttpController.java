@@ -5,7 +5,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 // 사용자가 요청 -> 응답(HTML파일)
@@ -15,24 +14,39 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HttpController {
 
-	//http://localhost:8080/http/get (select)
+	private static final String TAG = "httpControllerTest : ";
+
+	@GetMapping("/http/lombok")
+	public String lombokTest() {
+		Member m = Member.builder().username("me").password("1234").email("mail@gmail.com").build();
+		System.out.println(TAG + "getter : " + m.getUsername());
+		m.setUsername("you");
+		System.out.println(TAG + "getter : " + m.getUsername());
+		return "lombok test 완료";
+
+	}
+
+	// http://localhost:8080/http/get (select)
 	@GetMapping("/http/get")
 	public String getTest(Member m) { // MessageConverter(스프링부트)
-		return "Get 요청 "+m.getId()+","+m.getUsername()+","+m.getPassword()+","+m.getEmail();
+		return "Get 요청 " + m.getId() + "," + m.getUsername() + "," + m.getPassword() + "," + m.getEmail();
 	}
-	//http://localhost:8080/http/post (insert)
+
+	// http://localhost:8080/http/post (insert)
 	@PostMapping("/http/post") // text/plain, application/json
 	public String postTest(@RequestBody Member m) { // MessageConverter(스프링부트)
-		return "Post 요청 "+m.getId()+","+m.getUsername()+","+m.getPassword()+","+m.getEmail();
+		return "Post 요청 " + m.getId() + "," + m.getUsername() + "," + m.getPassword() + "," + m.getEmail();
 	}
-	//http://localhost:8080/http/put (update)
+
+	// http://localhost:8080/http/put (update)
 	@PutMapping("/http/put")
 	public String putTest(@RequestBody Member m) {
-		return "Put 요청"+m.getId()+","+m.getUsername()+","+m.getPassword()+","+m.getEmail();
+		return "Put 요청" + m.getId() + "," + m.getUsername() + "," + m.getPassword() + "," + m.getEmail();
 	}
-	//http://localhost:8080/http/delte (delete) 
+
+	// http://localhost:8080/http/delte (delete)
 	@DeleteMapping("/http/delete")
 	public String deleteTest(@RequestBody Member m) {
-		return "Delete 요청"+m.getId()+","+m.getUsername()+","+m.getPassword()+","+m.getEmail();
+		return "Delete 요청" + m.getId() + "," + m.getUsername() + "," + m.getPassword() + "," + m.getEmail();
 	}
 }
