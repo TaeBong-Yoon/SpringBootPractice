@@ -1,7 +1,6 @@
 HELP.md
 ### Maven ###
 target/
-*.yml
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup
@@ -14,8 +13,9 @@ buildNumber.properties
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**
 !**/src/test/**
-
+/src/main/resources/application.yml
 ### STS ###
+/src/main/resources/application.yml
 .apt_generated
 .classpath
 .factorypath
