@@ -4,30 +4,13 @@
 
 <div class="container">
 
-	<div class="card m-2">
-		<div class="card-body">
-			<h4 class="card-title">Subject</h4>
-			<a href="#" class="btn btn-primary">See Detail</a>
+	<c:forEach var="board" items="${boards}">
+		<div class="card m-2">
+			<div class="card-body">
+				<h4 class="card-title">${board.title}</h4>
+				<a href="#" class="btn btn-primary">See Detail</a>
+			</div>
 		</div>
-	</div>
-	<div class="card m-2">
-		<div class="card-body">
-			<h4 class="card-title">Subject</h4>
-			<a href="#" class="btn btn-primary">See Detail</a>
-		</div>
-	</div>
-	<div class="card m-2">
-		<div class="card-body">
-			<h4 class="card-title">Subject</h4>
-			<a href="#" class="btn btn-primary">See Detail</a>
-		</div>
-	</div>
-	<div class="card m-2">
-		<div class="card-body">
-			<h4 class="card-title">Subject</h4>
-			<a href="#" class="btn btn-primary">See Detail</a>
-		</div>
-	</div>
-
+	</c:forEach>
 </div>
 <%@ include file="layout/footer.jsp"%>
