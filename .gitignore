@@ -13,9 +13,10 @@ buildNumber.properties
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**
 !**/src/test/**
-/src/main/resources/application.yml
 ### STS ###
 /src/main/resources/application.yml
+application.yml
+.yml
 .apt_generated
 .classpath
 .factorypath
