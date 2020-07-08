@@ -4,7 +4,7 @@
 
 <div class="container">
 
-	<form action="#" method="post">
+	<form action="/auth/loginProc" method="post">
 		<div class="form-group">
 			<label for="username">User Name :</label> <input type="text" name="username" class="form-control" placeholder="Enter name" id="username">
 		</div>

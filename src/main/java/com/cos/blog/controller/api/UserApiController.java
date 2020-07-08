@@ -4,6 +4,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,7 +28,6 @@ public class UserApiController {
 	public ResponseDto<Integer> save(@RequestBody User user) {
 		System.out.println("API Controller : save call");
 		// httpstatus.ok.value() = 200 = 데이터 전송이 완료됐다는 뜻
-		user.setRole(RoleType.USER);
 		userService.joinService(user);
 		return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
 	}
