@@ -39,4 +39,15 @@ public class BoardService {
 			return new IllegalArgumentException("글 상세보기 실패");
 		});
 	}
+	
+	@Transactional
+	public void boardUpdate(int id, Board requestBoard) {
+		Board board = boardRepository.findById(id).orElseThrow(() -> {
+			return new IllegalArgumentException("글 찾기 실패");
+		}); // 영속화
+		board.setTitle(requestBoard.getTitle());
+		board.setContent(requestBoard.getContent());
+		// 해당 함수로 종료시(Service 종료시) 트랜잭션 종료.
+		// 이때 더티체킹 - 자동업데이트가 됨. 유 리ㅕ노
+	}
 }

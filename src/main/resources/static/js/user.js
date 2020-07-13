@@ -3,9 +3,9 @@ let index = {
 		$("#btn-save").on("click",()=>{ // this를 바인딩하기 위해 ()=>{}사용
 			this.save();
 		});
-		// $("#btn-login").on("click",()=>{
-		// 	this.login();
-		// });
+		$("#btn-update").on("click",()=>{
+			this.update();
+		});
 	},
 	save:function(){
 		let data = {
@@ -33,7 +33,35 @@ let index = {
         }).fail(function(error){
             alert(JSON.stringify(error));
         });
-	}//,
+    },
+    update:function(){
+		let data = {
+            id: $("#id").val(),
+            username: $("#username").val(),
+			password:$("#password").val(),
+			email:$("#email").val()
+		};
+        console.log(data)
+        $.ajax({
+            type:"PUT",
+            url:"/user",
+            data:JSON.stringify(data),
+            contentType:"application/json; charset=utf-8",
+            dataType:"json"
+        }).done(function(resp){
+            alert('Update Success.');
+            console.log(resp);
+            location.href = "/";
+        }).fail(function(error){
+            alert(JSON.stringify(error));
+        });
+    }
+    
+    
+    
+    
+    
+    //,
 	// login:function(){
 	// 	let data = {
 	// 		username:$("#username").val(),

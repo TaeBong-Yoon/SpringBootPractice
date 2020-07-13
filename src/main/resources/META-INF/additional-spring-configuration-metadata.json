@@ -1,0 +1,17 @@
+{"properties": [
+  {
+    "name": "cos",
+    "type": "java.lang.String",
+    "description": "A description for 'cos'"
+  },
+  {
+    "name": "dbsxogus.key",
+    "type": "java.lang.String",
+    "description": "A description for 'dbsxogus.key'"
+  },
+  {
+    "name": "pass-key.key",
+    "type": "java.lang.String",
+    "description": "A description for 'pass-key.key'"
+  }
+]}
